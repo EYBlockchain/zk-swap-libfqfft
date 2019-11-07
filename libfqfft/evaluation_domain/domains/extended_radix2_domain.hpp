@@ -1,11 +1,8 @@
 /** @file
  *****************************************************************************
-
  Declaration of interfaces for the "extended radix-2" evaluation domain.
-
  Roughly, the domain has size m = 2^{k+1} and consists of
  "the m-th roots of unity" union "a coset of these roots".
-
  *****************************************************************************
  * @author     This file is part of libfqfft, developed by SCIPR Lab
  *             and contributors (see AUTHORS).
@@ -27,7 +24,7 @@ public:
     FieldT omega;
     FieldT shift;
 
-    extended_radix2_domain(const size_t m);
+    extended_radix2_domain(const size_t m, bool &err);
 
     void FFT(std::vector<FieldT> &a);
     void iFFT(std::vector<FieldT> &a);

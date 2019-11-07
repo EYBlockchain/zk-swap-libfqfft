@@ -1,10 +1,7 @@
 /** @file
  *****************************************************************************
-
  Declaration of interfaces for the "geometric sequence" evaluation domain.
-
  These functions use a geometric sequence of size m to perform evaluation.
-
  *****************************************************************************
  * @author     This file is part of libfqfft, developed by SCIPR Lab
  *             and contributors (see AUTHORS).
@@ -21,13 +18,13 @@ namespace libfqfft {
   template<typename FieldT>
   class geometric_sequence_domain : public evaluation_domain<FieldT> {
   public:
-    
+
     bool precomputation_sentinel;
     std::vector<FieldT> geometric_sequence;
     std::vector<FieldT> geometric_triangular_sequence;
     void do_precomputation();
 
-    geometric_sequence_domain(const size_t m);
+    geometric_sequence_domain(const size_t m, bool &err);
 
     void FFT(std::vector<FieldT> &a);
     void iFFT(std::vector<FieldT> &a);

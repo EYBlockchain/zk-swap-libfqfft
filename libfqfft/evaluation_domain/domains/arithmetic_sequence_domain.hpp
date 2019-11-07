@@ -1,10 +1,7 @@
 /** @file
  *****************************************************************************
-
  Declaration of interfaces for the "arithmetic sequence" evaluation domain.
-
  These functions use an arithmetic sequence of size m to perform evaluation.
-
  *****************************************************************************
  * @author     This file is part of libfqfft, developed by SCIPR Lab
  *             and contributors (see AUTHORS).
@@ -21,14 +18,14 @@ namespace libfqfft {
   template<typename FieldT>
   class arithmetic_sequence_domain : public evaluation_domain<FieldT> {
   public:
-    
+
     bool precomputation_sentinel;
     std::vector<std::vector<std::vector<FieldT> > > subproduct_tree;
     std::vector<FieldT> arithmetic_sequence;
     FieldT arithmetic_generator;
     void do_precomputation();
 
-    arithmetic_sequence_domain(const size_t m);
+    arithmetic_sequence_domain(const size_t m, bool &err);
 
     void FFT(std::vector<FieldT> &a);
     void iFFT(std::vector<FieldT> &a);

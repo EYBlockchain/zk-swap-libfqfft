@@ -1,11 +1,8 @@
 /** @file
  *****************************************************************************
-
  Declaration of interfaces for the "step radix-2" evaluation domain.
-
  Roughly, the domain has size m = 2^k + 2^r and consists of
  "the 2^k-th roots of unity" union "a coset of 2^r-th roots of unity".
-
  *****************************************************************************
  * @author     This file is part of libfqfft, developed by SCIPR Lab
  *             and contributors (see AUTHORS).
@@ -29,7 +26,7 @@ public:
     FieldT big_omega;
     FieldT small_omega;
 
-    step_radix2_domain(const size_t m);
+    step_radix2_domain(const size_t m, bool &err);
 
     void FFT(std::vector<FieldT> &a);
     void iFFT(std::vector<FieldT> &a);

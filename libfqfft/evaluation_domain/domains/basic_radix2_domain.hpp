@@ -1,10 +1,7 @@
 /** @file
  *****************************************************************************
-
  Declaration of interfaces for the "basic radix-2" evaluation domain.
-
  Roughly, the domain has size m = 2^k and consists of the m-th roots of unity.
-
  *****************************************************************************
  * @author     This file is part of libfqfft, developed by SCIPR Lab
  *             and contributors (see AUTHORS).
@@ -26,7 +23,7 @@ public:
 
     FieldT omega;
 
-    basic_radix2_domain(const size_t m);
+    basic_radix2_domain(const size_t m, bool &err);
 
     void FFT(std::vector<FieldT> &a);
     void iFFT(std::vector<FieldT> &a);

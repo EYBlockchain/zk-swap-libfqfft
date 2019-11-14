@@ -10,4 +10,3 @@
 [submodule "depends/libff"]
 	path = depends/libff
         url = git@github.com:EYBlockchain/zk-swap-libff.git
-        branch = chait/mixed-radix-fft

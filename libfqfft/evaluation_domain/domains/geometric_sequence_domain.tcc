@@ -23,8 +23,6 @@ namespace libfqfft {
 template<typename FieldT>
 geometric_sequence_domain<FieldT>::geometric_sequence_domain(const size_t m, bool &err) : evaluation_domain<FieldT>(m)
 {
-  bool precomputation_sentinel;
-
   if (m <= 1) {
     err = true;
     precomputation_sentinel = false;

@@ -66,6 +66,7 @@ std::shared_ptr<evaluation_domain<FieldT> > get_evaluation_domain(const size_t m
       result.reset(basic);
       return result;
     }
+    delete basic;
     err = false;
 
     auto extended = new extended_radix2_domain<FieldT>(min_size, err);
@@ -73,6 +74,7 @@ std::shared_ptr<evaluation_domain<FieldT> > get_evaluation_domain(const size_t m
       result.reset(extended);
       return result;
     }
+    delete extended;
     err = false;
 
     auto step = new step_radix2_domain<FieldT>(min_size, err);
@@ -80,6 +82,7 @@ std::shared_ptr<evaluation_domain<FieldT> > get_evaluation_domain(const size_t m
       result.reset(step);
       return result;
     }
+    delete step;
     err = false;
 
     auto basic2 = new basic_radix2_domain<FieldT>(big + rounded_small, err);
@@ -87,6 +90,7 @@ std::shared_ptr<evaluation_domain<FieldT> > get_evaluation_domain(const size_t m
       result.reset(basic2);
       return result;
     }
+    delete basic2;
     err = false;
 
     auto extended2 = new extended_radix2_domain<FieldT>(big + rounded_small, err);
@@ -94,6 +98,7 @@ std::shared_ptr<evaluation_domain<FieldT> > get_evaluation_domain(const size_t m
       result.reset(extended2);
       return result;
     }
+    delete extended2;
     err = false;
 
     auto step2 = new step_radix2_domain<FieldT>(big + rounded_small, err);
@@ -101,6 +106,7 @@ std::shared_ptr<evaluation_domain<FieldT> > get_evaluation_domain(const size_t m
       result.reset(step2);
       return result;
     }
+    delete step2;
     err = false;
 
     if (FieldT::small_subgroup_defined) {
@@ -110,6 +116,7 @@ std::shared_ptr<evaluation_domain<FieldT> > get_evaluation_domain(const size_t m
         result.reset(mixed);
         return result;
       }
+      delete mixed;
       err = false;
     }
 
@@ -118,6 +125,7 @@ std::shared_ptr<evaluation_domain<FieldT> > get_evaluation_domain(const size_t m
       result.reset(geometric);
       return result;
     }
+    delete geometric;
     err = false;
 
     auto arithmetic = new arithmetic_sequence_domain<FieldT>(min_size, err);
@@ -125,6 +133,7 @@ std::shared_ptr<evaluation_domain<FieldT> > get_evaluation_domain(const size_t m
       result.reset(arithmetic);
       return result;
     }
+    delete arithmetic;
     err = false;
 
     throw DomainSizeException("get_evaluation_domain: no matching domain");
